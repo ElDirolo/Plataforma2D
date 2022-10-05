@@ -48,7 +48,7 @@ public class PlayerMove : MonoBehaviour
 
         if(Input.GetButtonDown("Jump"))
         {
-            rigided.velocity = new Vector2(rigided.velocity.x, jumpForce);
+            Debug.Log("Goomba muerto");
         }
         //playertrasnform.position += new Vector3 (horizontal * speed * Time.deltaTime, 0, 0);
         //playertrasnform.position += new Vector3 (1, 0, 0) * horizontal * speed * Time.deltaTime;
