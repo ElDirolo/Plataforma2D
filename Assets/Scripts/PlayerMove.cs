@@ -10,7 +10,7 @@ public class PlayerMove : MonoBehaviour
 
     private Rigidbody2D rigided;
     private Animator anim;
-
+    
     private float horizontal;
 
     public PlayableDirector director;
@@ -48,7 +48,9 @@ public class PlayerMove : MonoBehaviour
 
         if(Input.GetButtonDown("Jump"))
         {
-            Debug.Log("Goomba muerto");
+            Debug.Log("Saltapls");
+            rigided.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            anim.SetBool("Salto", true);
         }
         //playertrasnform.position += new Vector3 (horizontal * speed * Time.deltaTime, 0, 0);
         //playertrasnform.position += new Vector3 (1, 0, 0) * horizontal * speed * Time.deltaTime;
@@ -57,7 +59,7 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        rigided.velocity = new Vector2(horizontal * speed, 0);
+        rigided.velocity = new Vector2(horizontal * speed, rigided.velocity.y);
     }
 
     void OnTriggerEnter2D(Collider2D other)

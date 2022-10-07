@@ -6,15 +6,14 @@ public class GroundCheck : MonoBehaviour
 {
     public static bool isGrounded;
     
-    // Start is called before the first frame update utilizando trigers o hacerlo con el caracther controler de jugeo 3d
-    void Start()
+    void OnTriggerStay2D(Collider2D col)
     {
+        isGrounded = true;
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerExit2D(Collider2D col)
     {
-        
+       isGrounded = false;
     }
 }
