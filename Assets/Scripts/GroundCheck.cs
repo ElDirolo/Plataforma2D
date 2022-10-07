@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class GroundCheck : MonoBehaviour
 {
-    public static bool isGrounded;
-    
+    PlayerMove player;
+
+    void Awake()
+    {  
+        player = GameObject.Find("knight").GetComponent<PlayerMove>();
+    }
     void OnTriggerStay2D(Collider2D col)
     {
-        isGrounded = true;
+        player.isGrounded = true;
+        player.anim.SetBool("Salto", false);
+        
         
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
-       isGrounded = false;
+       player.isGrounded = false;
     }
 }

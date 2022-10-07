@@ -7,9 +7,10 @@ public class PlayerMove : MonoBehaviour
 {
     public float speed = 5;
     public float jumpForce = 5;
+    public bool isGrounded;
 
     private Rigidbody2D rigided;
-    private Animator anim;
+    public Animator anim;
     
     private float horizontal;
 
@@ -46,7 +47,7 @@ public class PlayerMove : MonoBehaviour
             anim.SetBool("Correr", true);
         }
 
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Jump") && isGrounded)
         {
             Debug.Log("Saltapls");
             rigided.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
